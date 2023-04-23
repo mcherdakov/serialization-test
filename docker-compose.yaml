@@ -1,0 +1,51 @@
+services:
+  proxy:
+    build:
+      dockerfile: Dockerfile.proxy.yaml
+      context: .
+    ports:
+      - "2000:2000/udp"
+    depends_on:
+      - gob
+      - json
+      - xml
+      - yaml
+      - protobuf
+      - message_pack
+  gob:
+    build:
+      dockerfile: Dockerfile.tester.yaml
+      context: .
+    environment:
+      - FORMAT_NAME=gob
+  json:
+    build:
+      dockerfile: Dockerfile.tester.yaml
+      context: .
+    environment:
+      - FORMAT_NAME=json
+  xml:
+    build:
+      dockerfile: Dockerfile.tester.yaml
+      context: .
+    environment:
+      - FORMAT_NAME=xml
+  yaml:
+    build:
+      dockerfile: Dockerfile.tester.yaml
+      context: .
+    environment:
+      - FORMAT_NAME=yaml
+  protobuf:
+    build:
+      dockerfile: Dockerfile.tester.yaml
+      context: .
+    environment:
+      - FORMAT_NAME=protobuf
+  message_pack:
+    build:
+      dockerfile: Dockerfile.tester.yaml
+      context: .
+    environment:
+      - FORMAT_NAME=message_pack
+

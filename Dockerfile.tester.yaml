@@ -1,0 +1,10 @@
+FROM golang:1.20
+
+WORKDIR app/
+
+COPY . .
+
+RUN go build -o /app/main ./cmd/tester
+
+CMD /app/main --format $FORMAT_NAME --port 2000
+
