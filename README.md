@@ -33,6 +33,7 @@ make run
 Пример тестирования:
 
 ```bash
+nc -u 127.0.0.1 2000
 get_result gob
 gob - 664 - 11.526µs - 37.22µs
 get_result json
